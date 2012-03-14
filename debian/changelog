@@ -1,3 +1,9 @@
+s3cmd (1.1.0~beta3-ct1) unstable; urgency=low
+
+  * Upgrade to latest version from GitHub (has follow symlink issue resolved)
+
+ -- Jens Braeuer <braeuer.jens@googlemail.com>  Wed, 14 Mar 2012 11:49:17 +0200
+
 s3cmd (1.0.0-1) unstable; urgency=low
 
   * New upstream release.
