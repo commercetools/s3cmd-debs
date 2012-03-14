@@ -1,0 +1,48 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+PACKAGE_NAME=s3cmd
+PACKAGE_DIR=$(CURDIR)/debian/$(PACKAGE_NAME)
+
+SHARE_DIR=/usr/share/s3cmd
+
+clean:
+	dh_testdir
+	dh_testroot
+
+	S3CMD_PACKAGING=1 python setup.py clean
+	-rm -f S3/*.pyc
+
+	dh_clean
+
+install:
+	dh_testdir
+	dh_testroot
+	dh_prep
+	dh_installdirs
+
+	S3CMD_PACKAGING=1 python setup.py install --no-compile \
+		 --root $(PACKAGE_DIR) \
+		 --install-lib $(SHARE_DIR) \
+		 --install-scripts $(SHARE_DIR)
+	rm -rf $(PACKAGE_DIR)/usr/share/s3cmd/*.egg-info
+
+binary-indep: install
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs NEWS
+	dh_installdocs
+	dh_installman
+	dh_link $(SHARE_DIR)/s3cmd /usr/bin/s3cmd
+	dh_pysupport
+	dh_compress -X.py
+	dh_fixperms
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary-arch: install
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install

@@ -1,0 +1,41 @@
+Upstream checks for the presence of ElementTree at the build time. This is
+unnecessary (ET is only used run-time), but he prefers it this way, so let's
+just ignore this check.
+
+Index: s3cmd-0.9.5/setup.py
+===================================================================
+--- s3cmd-0.9.5.orig/setup.py	2007-08-25 07:46:25.000000000 +0700
++++ s3cmd-0.9.5/setup.py	2007-11-20 03:24:38.000000000 +0600
+@@ -9,19 +9,19 @@
+ 	sys.stderr.write("S3cmd requires Python 2.4 or newer.\n")
+ 	sys.exit(1)
+ 
+-try:
+-	import xml.etree.ElementTree as ET
+-	print "Using xml.etree.ElementTree for XML processing"
+-except ImportError, e:
+-	sys.stderr.write(str(e) + "\n")
+-	try:
+-		import elementtree.ElementTree as ET
+-		print "Using elementtree.ElementTree for XML processing"
+-	except ImportError, e:
+-		sys.stderr.write(str(e) + "\n")
+-		sys.stderr.write("Please install ElementTree module from\n")
+-		sys.stderr.write("http://effbot.org/zone/element-index.htm\n")
+-		sys.exit(1)
++#try:
++#	import xml.etree.ElementTree as ET
++#	print "Using xml.etree.ElementTree for XML processing"
++#except ImportError, e:
++#	sys.stderr.write(str(e) + "\n")
++#	try:
++#		import elementtree.ElementTree as ET
++#		print "Using elementtree.ElementTree for XML processing"
++#	except ImportError, e:
++#		sys.stderr.write(str(e) + "\n")
++#		sys.stderr.write("Please install ElementTree module from\n")
++#		sys.stderr.write("http://effbot.org/zone/element-index.htm\n")
++#		sys.exit(1)
+ 
+ try:
+ 	## Remove 'MANIFEST' file to force

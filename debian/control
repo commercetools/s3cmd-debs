@@ -1,0 +1,26 @@
+Source: s3cmd
+Section: utils
+Priority: optional
+Maintainer: Mikhail Gusarov <dottedmag@dottedmag.net>
+Uploaders: Python Applications Packaging Team <python-apps-team@lists.alioth.debian.org>
+Build-Depends: debhelper (>= 7), python
+Build-Depends-Indep: python-support (>= 0.6.4)
+Standards-Version: 3.9.1
+Vcs-Svn: svn://svn.debian.org/svn/python-apps/packages/s3cmd/trunk
+Vcs-Browser: http://svn.debian.org/viewsvn/python-apps/packages/s3cmd/trunk/
+Homepage: http://s3tools.logix.cz/s3cmd
+
+Package: s3cmd
+Architecture: all
+Depends: python (>= 2.5) | python-elementtree, ${python:Depends}, ${misc:Depends}
+Description: command-line Amazon S3 client
+ Command-line tool to upload, retrieve and manage data in Amazon S3 service
+ (http://www.amazon.com/s3/), designed for use in scripts. Features:
+  - creating and destroying S3 buckets
+  - uploading and downloading files
+  - listing remote files
+  - removing remote files
+  - synchronizing local directories to S3 buckets
+  - getting various information about buckets and disk usage
+ .
+ s3cmd supports both (US and EU) S3 datacentres.

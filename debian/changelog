@@ -1,0 +1,136 @@
+s3cmd (1.0.0-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control: Bump Standards-Version, no changes required.
+  * Switch package format to 3.0 (quilt):
+    - debian/control: drop quilt from Build-Depends.
+    - debian/rules: simplify.
+    - debian/README.source: drop.
+  * Add debian/patches/fix-mangpage-typos.patch to correct typos catched
+    by lintian.
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Mon, 28 Mar 2011 12:09:17 +0200
+
+s3cmd (0.9.9.91-1) unstable; urgency=low
+
+  * New upstream release.
+  * Bump Standards-Version, no changes required.
+  * Drop XS-Python-Version: Debian does not have Python < 2.4 anymore.
+  * Drop unused XB-Python-Version.
+  * Fix preinst script: it errorneously contained 0.14-1 as a first
+    python-support-managed version, not 0.9.9-2.
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Tue, 20 Oct 2009 01:53:35 +0700
+
+s3cmd (0.9.9-2) unstable; urgency=low
+
+  * Switched to python-support.
+    - added preinst script to de-register from pycentral.
+  * Standards-Version bumped to 3.8.1, no changes needed.
+  * Private python modules were moved to /usr/share/s3cmd:
+    - debian/s3cmd.dirs
+    - debian/rules changed accordingly
+  * debian/rules cleanup
+  * python-all-dev build-dependency relaxed to python, as no binary
+    modules are built.
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Mon, 13 Apr 2009 05:08:02 +0700
+
+s3cmd (0.9.9-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Tue, 17 Feb 2009 12:21:03 +0600
+
+s3cmd (0.9.9~rc3-1) unstable; urgency=low
+
+  [ Mikhail Gusarov ]
+  * New upstream release.
+  * debian/watch:
+    - 0.9.9-rc3-speedup tarball should not be considered.
+  * debian/control:
+    - package description expanded, as suggested by Lintian.
+  * debian/rules:
+    - deprecated dh_clean -k replaced with dh_prep.
+
+  [ Piotr Ożarowski ]
+  * debian/watch file updated to handle -rc and -pre versions correctly
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Tue, 17 Feb 2009 01:27:27 +0600
+
+s3cmd (0.9.8.4-1) unstable; urgency=low
+
+  [Mikhail Gusarov]
+  * New upstream release.
+
+  [Sandro Tosi]
+  * debian/control
+    - switch Vcs-Browser field to viewsvn
+  
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Tue, 09 Dec 2008 01:56:19 +0600
+
+s3cmd (0.9.8.3-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Sat, 06 Sep 2008 19:58:37 +0700
+
+s3cmd (0.9.8.2-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Sat, 05 Jul 2008 14:35:07 +0700
+
+s3cmd (0.9.8.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * Package is now maintained in PAPT:
+    - PAPT added to Uploaders.
+  * debian/rules cleaned up:
+    - no need to have empty configure target
+    - fixed quilt usage
+  * debhelper compatibility level bumped to 7:
+    - bumped debhelper build-dependency.
+  * Section changed to utils.
+  * python-elementtree dependency changed to python2.5 |
+    python-elementtree to use ElementTree bundled in 2.5
+  * Vcs-{Svn,Browser} added.
+  * Standards-Version bumped to 3.8.0:
+    - debian/README.source added
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Sat, 03 May 2008 14:30:29 +0700
+
+s3cmd (0.9.6-1) unstable; urgency=low
+
+  * New upstream release (Closes: #471698).
+  * Bumped Standards-Version (no changes required).
+  * Bumped python-central dependency to >= 0.6 to get rid of empty
+    /usr/lib directory.
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Mon, 31 Mar 2008 23:52:49 +0700
+
+s3cmd (0.9.5-1) unstable; urgency=low
+
+  * New upstream release
+    - do-not-check-elementtree-at-build-time.patch refreshed.
+  
+  * Homepage moved from description to debian/control field.
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Wed, 14 Nov 2007 03:04:49 +0600
+
+s3cmd (0.9.4-1) unstable; urgency=low
+
+  * New upstream release (Closes: #438933).
+  * Do not build for python2.3 as suggested by author (Closes: #432705).
+  * No longer ship s3cmd.1 or setup.py in debian/ - upstream ones are ok.
+  * Quilt is used to manage patches.
+    - do-not-check-elementtree-at-build-time.patch added - ElementTree is
+      only runtime dependency, no need to check it at build time.
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Fri, 24 Aug 2007 23:17:27 +0700
+
+s3cmd (0.9.3-1) unstable; urgency=low
+
+  * Initial revision. (Closes: #427414)
+
+ -- Mikhail Gusarov <dottedmag@dottedmag.net>  Sat, 09 Jun 2007 20:42:11 +0700

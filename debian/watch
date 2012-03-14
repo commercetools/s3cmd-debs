@@ -1,0 +1,2 @@
+version=3
+opts=uversionmangle=s/-(pre|rc)/~$1/;s/-(speedup)/~$1/  http://sf.net/s3tools/s3cmd-(.*)\.tar\.gz
