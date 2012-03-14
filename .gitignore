@@ -1,0 +1,4 @@
+s3cmd
+*~
+*.deb
+*.changes
